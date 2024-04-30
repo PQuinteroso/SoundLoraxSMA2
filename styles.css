@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0f0f12;
+}
+
+.boxes{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 1%;
+    height: 100vh;
+    padding-top: 100px;
+}
+
+.box{
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    background-color: #ebb608;
+    /*padding: 10%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box p{
+    color: #ffffff;
+    font-weight: 800;
+}
+
+p{
+    font-family: 'Nunito', sans-serif;
+}
+
+.stop{
+    background-color: #cc0606;
+    width: 99%;
+    padding-top: 5px;
+}
+
+.stop2 {
+    width: 49%;
+}
+
+.volume-bar {
+    width: 100%;
+    padding: 5px 5px;
+    background-color: #1d1d21;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-bar label{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 800;
+    padding-right: 10px;
+}
+
+.volume-bar input{
+    width: 60%;
+}
+
+.volume-bar div{
+    padding-left: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+    width: 1px;
+}
+
+.volume-bars{    
+    background-color: #f0f0f0;
+    text-align: center;
+    position: fixed;
+
+
+    width: 100%;
+    /*height: 100px;*/
+}
+
+.box2{
+    background-color: #36c2c7;
+}
+
+.box3{
+    background-color: #f00;
+}
+
+.m-malvada{
+    background-color: #a11708;
+}
+
+.m-incomoda{
+    background-color: #9bab76;
+}
+
+.m-misterio{
+    background-color: #6e0775;
+}
+
+.m-aventura{
+    background-color: #e08c04;
+}
+
+.m-desertica{
+    background-color: #b58231;
+}
+
+.m-i-bs{
+    background-color: #ff9d00;
+}
+
+.m-m-bs{
+    background-color: #ff0037;
+}
+
+.m-solitaria{
+    background-color: #8472a6;
+}
+
+.m-alegre{
+    background-color: #e0c443;
+}
+
+.m-mistica{
+    background-color: #695a9e;
+}
+
+.m-triste{
+    background-color: #4d638f;
+}
+
+.m-timbre{
+    background-color: #7a7a7a;
+}
+
+.m-campana{
+    background-color: #524c43;
+}
+
+.m-disco{
+    background-color: #ed85d5;
+}
+
+.m-ciudad{
+    background-color: #75829c;
+}
+
+.m-arbol{
+    background-color: #755424;
+}
+
+.m-villano{
+    background-color: #442f61;
+}
+
+.m-malvada2{
+    background-color: #ab2a16;
+}
+
+.m-esperanzadora{
+    background-color: #5fab41;
+}
+
+.m-camion{
+    background-color: #41ab88;
+}
+
+.m-llamada{
+    background-color: #323634;
+}
+
+.m-puerta{
+    background-color: #593a11;
+}
+
+.m-trituradora{
+    background-color: #8a767b;
+}
+
+.m-crecer{
+    background-color: #189911;
+}
+
+.m-reflex{
+    background-color: #2f6299;
+}

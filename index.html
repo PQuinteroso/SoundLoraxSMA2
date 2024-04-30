@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonidos Lórax SMA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="volume-bars">
+        <!-- Musica Volumen -->
+        <div class="volume-bar">
+            <label for="volume-range">Música: </label>
+            <input type="range" id="music-volume-range" min="0" max="1" step="0.01" value="1"
+                oninput="changeVolume('music', this.value)">
+            <div id="musicBarNum"></div>
+        </div>
+        <!--SFX Volumen-->
+        <div class="volume-bar sfx-bar">
+            <label for="sound-effect-volume-range">SFX:</label>
+            <input type="range" id="sound-effect-volume-range" min="0" max="1" step="0.01" value="1"
+                oninput="changeVolume('soundEffect', this.value)">
+            <div id="sfxBarNum"></div>
+        </div>
+    </div>
+
+    <div class="boxes">
+        <div class="box stop" onclick="fadeOutAllAudios();">
+            <p>Detener todos los audios</p>
+        </div>
+
+        <div class="box stop stop2" onclick="stopCategory('music')">
+            <p>Detener Música</p>
+        </div>
+
+        <div class="box stop stop2" onclick="stopCategory('soundEffect')">
+            <p>Detener SFX</p>
+        </div>
+
+        <!-- Divs con el estilo, los audios y el evento onclick -->
+        <div class="box m-timbre" onclick="playPauseAudio('audioElement12', 'soundEffect')"><!---->
+            <audio id="audioElement12" class="soundEffect">
+                <source src="musica/Timbre4.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Timbre</p>
+        </div>
+
+        <div class="box m-campana" onclick="playPauseAudio('audioElement13', 'soundEffect')"><!---->
+            <audio id="audioElement13" class="soundEffect">
+                <source src="musica/Campana2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Campana</p>
+        </div>
+
+        <div class="box box3 m-llamada" onclick="playPauseAudio('audioElement23', 'soundEffect');">
+            <audio id="audioElement23" class="soundEffect">
+                <source src="musica/SonidoRecibiendoLlamada.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Recibiendo Llamada</p>
+        </div>
+
+        <div class="box box3 m-llamada" onclick="playPauseAudio('audioElement24', 'soundEffect');">
+            <audio id="audioElement24" class="soundEffect">
+                <source src="musica/SonidoLlamando.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Llamando</p>
+        </div>
+
+        <div class="box box3 m-llamada" onclick="playPauseAudio('audioElement25', 'soundEffect');">
+            <audio id="audioElement25" class="soundEffect">
+                <source src="musica/SonidoCortandoLlamada2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Cortando Llamada</p>
+        </div>
+
+        <div class="box m-arbol" onclick="playPauseAudio('audioElement18', 'soundEffect');">
+            <audio id="audioElement18" class="soundEffect">
+                <source src="musica/Arbol.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Arbol Cayendo</p>
+        </div>
+
+        <div class="box m-arbol" onclick="playPauseAudio('audioElement30', 'soundEffect');">
+            <audio id="audioElement30" class="soundEffect">
+                <source src="musica/ArbolCayendo.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Arbol Cayendo 2</p>
+        </div>
+
+        <div class="box m-malvada" onclick="playPauseAudio('audioElement1', 'music')">
+            <audio id="audioElement1" class="music">
+                <source src="musica/MusicaMalvada.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Malvada / Tensión</p>
+        </div>
+
+        <div class="box m-incomoda" onclick="playPauseAudio('audioElement2', 'music')">
+            <audio id="audioElement2" class="music">
+                <source src="musica/MusicaIncomoda.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Incómoda</p>
+        </div>
+
+        <div class="box m-misterio" onclick="playPauseAudio('audioElement3', 'music')">
+            <audio id="audioElement3" class="music">
+                <source src="musica/MusicaMisterio.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Misterio</p>
+        </div>
+
+        <div class="box m-aventura" onclick="playPauseAudio('audioElement4', 'music')">
+            <audio id="audioElement4" class="music">
+                <source src="musica/MusicaAventuraImposible.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Aventura</p>
+        </div>
+
+        <div class="box m-desertica" onclick="playPauseAudio('audioElement5', 'music')">
+            <audio id="audioElement5" class="music">
+                <source src="musica/MusicaDesertica.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Desértica</p>
+        </div>
+
+        <div class="box m-i-bs" onclick="playPauseAudio('audioElement6', 'soundEffect')"><!---->
+            <audio id="audioElement6" class="soundEffect">
+                <source src="musica/IntroBrawl.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Inicio Brawl Stars</p>
+        </div>
+
+        <div class="box m-m-bs" onclick="playPauseAudio('audioElement7', 'soundEffect')"><!---->
+            <audio id="audioElement7" class="soundEffect">
+                <source src="musica/MuerteBrawl.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Muerte Brawl Stars</p>
+        </div>
+
+        <div class="box m-solitaria" onclick="playPauseAudio('audioElement8', 'music')">
+            <audio id="audioElement8" class="music">
+                <source src="musica/MusicaSolitaria.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Solitaria</p>
+        </div>
+
+        <div class="box m-alegre" onclick="playPauseAudio('audioElement9', 'music')">
+            <audio id="audioElement9" class="music">
+                <source src="musica/MusicaAlegre.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Alegre</p>
+        </div>
+
+        <div class="box m-mistica" onclick="playPauseAudio('audioElement10', 'music')">
+            <audio id="audioElement10" class="music">
+                <source src="musica/MusicaMistica.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Mística</p>
+        </div>
+
+        <div class="box m-triste" onclick="playPauseAudio('audioElement11', 'music')">
+            <audio id="audioElement11" class="music">
+                <source src="musica/MusicaTriste.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Triste</p>
+        </div>
+
+        <!-- Nuevos divs que se agregaron -->
+
+
+        <div class="box m-disco" onclick="playPauseAudio('audioElement14', 'soundEffect');"><!---->
+            <audio id="audioElement14" class="soundEffect">
+                <source src="musica/MusicaDisco.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Disco</p>
+        </div>
+
+        <div class="box m-ciudad" onclick="playPauseAudio('audioElement17', 'soundEffect');">
+            <audio id="audioElement17" class="soundEffect">
+                <source src="musica/SonidoCiudad.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Ciudad</p>
+        </div>
+
+        <div class="box box2 m-thneed" onclick="playPauseAudio('audioElement15', 'music');">
+            <audio id="audioElement15" class="music">
+                <source src="musica/TodoElMundoQuiereUnThneed-ElLorax.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Todo el mundo quiere un Thneed</p>
+        </div>
+
+        <div class="box box2 m-villano" onclick="playPauseAudio('audioElement20', 'music');">
+            <audio id="audioElement20" class="music">
+                <source src="musica/MusicaVillano.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Musica Villano</p>
+        </div>
+
+        <div class="box box2 m-malvada2" onclick="playPauseAudio('audioElement19', 'music');">
+            <audio id="audioElement19" class="music">
+                <source src="musica/MusicaMalvada2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Musica Malvada 2</p>
+        </div>
+
+        <div class="box box3 m-esperanzadora" onclick="playPauseAudio('audioElement21', 'music');">
+            <audio id="audioElement21" class="music">
+                <source src="musica/MusicaReflexiva.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Musica Esperanza</p>
+        </div>
+
+        <div class="box box3 m-camion" onclick="playPauseAudio('audioElement22', 'soundEffect');">
+            <audio id="audioElement22" class="soundEffect">
+                <source src="musica/SonidoCamion.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Camión</p>
+        </div>
+
+        <div class="box box3 m-trituradora" onclick="playPauseAudio('audioElement27', 'soundEffect');">
+            <audio id="audioElement27" class="soundEffect">
+                <source src="musica/SonidoTrituradora2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Sonido Trituradora</p>
+        </div>
+
+        <div class="box box3 m-crecer" onclick="playPauseAudio('audioElement28', 'music');">
+            <audio id="audioElement28" class="music">
+                <source src="musica/ACrecer2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música: A Crecer</p>
+        </div>
+
+        <div class="box box3 m-reflex" onclick="playPauseAudio('audioElement29', 'music');">
+            <audio id="audioElement29" class="music">
+                <source src="musica/MusicaTriste2.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p>Música Reflexiva / Triste 2</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Variable global para almacenar el volumen de la música
+        let musicVolume = 1;
+
+        // Variable global para almacenar el volumen de los efectos de sonido
+        let soundEffectVolume = 1;
+
+        // Código para cambiar el número del volumen
+
+        var musicBarNum = `<p>${musicVolume * 100}</p>`
+        var sfxBarNum = `<p>${soundEffectVolume * 100}</p>`
+
+        document.getElementById("musicBarNum").innerHTML = musicBarNum;
+        document.getElementById("sfxBarNum").innerHTML = sfxBarNum;
+
+        // Función para reproducir/pausar el audio
+        function playPauseAudio(audioId, category) {
+            const audioElement = document.getElementById(audioId);
+            const volume = category === 'music' ? musicVolume : soundEffectVolume;
+            audioElement.volume = volume; // Aplicar el volumen actual
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+                audioElement.currentTime = 0; // Reiniciar la reproducción al inicio
+            }
+        }
+
+        // Función para detener todos los audios gradualmente
+        function fadeOutAllAudios() {
+            const audioElements = document.querySelectorAll('audio');
+            const fadeDuration = 500; // Duración en milisegundos del fade out
+
+            audioElements.forEach(audio => {
+                let volume = audio.volume;
+                const fadeInterval = setInterval(() => {
+                    volume -= 0.05; // Disminuir el volumen gradualmente
+                    if (volume <= 0) {
+                        clearInterval(fadeInterval);
+                        audio.pause();
+                        audio.currentTime = 0;
+                        audio.volume = 1; // Restaurar el volumen original
+                    } else {
+                        audio.volume = volume;
+                    }
+                }, fadeDuration / 20);
+            });
+        }
+
+        function stopCategory(category) {
+            console.log("wena po")
+            const audioElements = document.querySelectorAll(`.${category}`);
+            audioElements.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        // Función para cambiar el volumen de la música o efectos de sonido
+        function changeVolume(category, volume) {
+            if (category === 'music') {
+                musicVolume = volume; // Almacenar el volumen actual de la música
+            } else if (category === 'soundEffect') {
+                soundEffectVolume = volume; // Almacenar el volumen actual de los efectos de sonido
+            }
+
+            const audioElements = document.querySelectorAll(`.${category}`);
+            audioElements.forEach(audio => {
+                audio.volume = volume;
+            });
+
+            var musicBarNum = `<p>${Math.round(musicVolume * 100)}</p>`
+            var sfxBarNum = `<p>${Math.round(soundEffectVolume * 100)}</p>`
+
+            document.getElementById("musicBarNum").innerHTML = musicBarNum;
+            document.getElementById("sfxBarNum").innerHTML = sfxBarNum;
+        }
+
+        //Espacio para detener sonidos
+        document.addEventListener('keypress', function (e) {
+            if (e.key === ' ' || e.code === 'Space') {
+                fadeOutAllAudios()
+            }
+        });
+
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' || e.code === 'Enter') {
+                playPauseAudio('audioElement12', 'soundEffect')
+            }
+        });
+    </script>
+
+</body>
+
+</html>
