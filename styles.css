@@ -18,13 +18,13 @@ body{
     padding: 50px;
     gap: 1%;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 110px;
 }
 
 .box{
     width: 130px;
     height: 130px;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: #ebb608;
     /*padding: 10%;*/
     display: flex;
@@ -46,7 +46,6 @@ p{
 .stop{
     background-color: #cc0606;
     width: 99%;
-    padding-top: 5px;
 }
 
 .stop2 {
